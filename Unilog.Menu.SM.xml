@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>Unilog.Menu.SM</name>
-	<version>59</version>
+	<version>60</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments>
@@ -2025,7 +2025,7 @@
 			<text> </text>
 			<text>(</text>
 			<text> </text>
-			<var>$ware</var>
+			<var>$res</var>
 			<text> </text>
 			<text>)</text>
 		</line>
@@ -2578,7 +2578,7 @@
 			<text> </text>
 			<text>(</text>
 			<text> </text>
-			<var>$ware</var>
+			<var>$res</var>
 			<text> </text>
 			<text>)</text>
 		</line>
@@ -3851,7 +3851,7 @@
 			<sval type="string" val="Unilog.Menu.SM" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="59" />
+			<sval type="int" val="60" />
 			<sval type="int" val="0" />
 			<sval type="array" size="67">
 				<sval type="string" val="Menu" />
@@ -5318,7 +5318,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="42" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="31" />
+					<sval type="int" val="43" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -5709,7 +5709,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="42" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="31" />
+					<sval type="int" val="43" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
