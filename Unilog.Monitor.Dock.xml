@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>Unilog.Monitor.Dock</name>
-	<version>186</version>
+	<version>190</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments />
@@ -830,7 +830,7 @@
 			<var>0</var>
 		</line>
 		<line linenr="099" indent="&#160;">
-			<comment>* Unload recently docked trucks. This will also set FreeTrucks if there are any trucks available for work and update fromvolumeincoming on clients.</comment>
+			<comment>* Unload recently docked trucks. This will also set FreeTrucks if there are any trucks available for work.</comment>
 		</line>
 		<line linenr="100" indent="&#160;">
 			<text>gosub</text>
@@ -4394,7 +4394,7 @@
 			<text> </text>
 			<var>$cur</var>
 			<text> </text>
-			<text>&gt;</text>
+			<text>&lt;</text>
 			<text> </text>
 			<var>$cap</var>
 			<text> </text>
@@ -9036,7 +9036,7 @@
 			<sval type="string" val="Unilog.Monitor.Dock" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="186" />
+			<sval type="int" val="190" />
 			<sval type="int" val="0" />
 			<sval type="array" size="122">
 				<sval type="string" val="stateVersion" />
@@ -12179,10 +12179,10 @@
 					<sval type="int" val="15" />
 					<sval type="int" val="14" />
 					<sval type="int" val="15" />
-					<sval type="int" val="2" />
+					<sval type="int" val="3" />
 					<sval type="int" val="5" />
 					<sval type="int" val="-1" />
-					<sval type="int" val="2" />
+					<sval type="int" val="3" />
 					<sval type="int" val="-2" />
 					<sval type="int" val="14" />
 					<sval type="int" val="-3" />
@@ -15858,7 +15858,7 @@
 				<sval type="array" size="3">
 					<sval type="int" val="50" />
 					<sval type="int" val="1" />
-					<sval type="string" val="Unload recently docked trucks. This will also set FreeTrucks if there are any trucks available for work and update fromvolumeincoming on clients." />
+					<sval type="string" val="Unload recently docked trucks. This will also set FreeTrucks if there are any trucks available for work." />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="51" />
