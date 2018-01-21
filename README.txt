@@ -65,36 +65,22 @@ Let's explain a few things that just happened:
    save I was starting with and I haven't bothered changing that. If
    there's interest that can definitely be changed.
     
-There is a very big difference here compared to other scripts that
-deal with logistics. Our trucks are dumb as bricks. They have no logic
-at all. In fact, the only command they execute is: "go to X", nothing
-else. Other scripts try to coordinate tasks between their ships so
-that not all ships go at the same time to the same factory to top up
-some missing resource and coordinating that information between
-multiple scripts is an almost impossible task. All the logic in UL is
-centralized in the logistics dock. The logistics dock decides when,
-which and how many wares to load and unload.
+Our trucks are dumb as bricks. They have no logic at all. In fact, the
+only command they execute is: "go to X", nothing else. All the logic
+in UL is centralized in the logistics dock. The logistics dock decides
+when, which and how many wares to load and unload.
 
-Another difference is that UL tries to be smart about using resources
-when they are available. Let's say our cahoona bakery needs 500 argnu
-beef, we have lots of argnu beef in the logistics dock and a truck is
-docked. We load 500 argnu beef into the truck but before sending it to
-the cahoona bakery we check if the cahoona bakery also needs something
-else, we find out that it also needs 2000 energy cells. So we add
-those to the truck and send it on its way to the cahoona bakery. It
-docks, UL unloads the wares and the cahoona bakery is happy once
-again. A normal script would then send the truck back to home base to
-pick up the next job. Not UL. UL will keep the truck in the cahoona
-bakery until one of three things happens: 1. We really, really need a
-truck somewhere else and this is the best one for the job. 2. The
-factory produces enough meatsteak cahoonas to fill the truck.
-3. Someone needs meatsteak cahoonas somewhere else.  In case of 2 and
-3, we load the truck with enough cahoonas and send them to where they
-need to go. In case of 1, well, we tried, send the truck there, but
-first we check if that destination needs cahoonas, if it does, great,
-we'll ship some of them there. Of course, the smart reader has figured
-out that this works better the more spare trucks you have, if we're
-struggling with demand everywhere there's just so much that we can do.
+UL tries to be smart about using resources when they are available.
+Let's say our cahoona bakery needs 500 argnu beef, we have lots of
+argnu beef in the logistics dock and a truck is docked. We load 500
+argnu beef into the truck but before sending it to the cahoona bakery
+we check if the cahoona bakery also needs something else, we find out
+that it also needs 2000 energy cells. So we add those to the truck and
+send it on its way to the cahoona bakery. It docks, UL unloads the
+wares and the cahoona bakery is happy once again. The truck is then
+requested to go somewhere else for a job. Before going there we check
+if that station needs cahoonas and if it does, we load them and take
+them there.
 
 We can add docks (other sanctuaries or MLCC) to be managed as well. In
 that case UL will look at the dockware configuration capacities to see
@@ -109,7 +95,7 @@ Standard freighters can take hours to stock a sanctuary with basic
 wares and if you set dockware limits to reasonable amounts from the
 beginning they might spend dozens of runs on "nice to have" things
 like half a million energy cells while the sanctuary starves. Dockware
-configuration is obeyed to +-10%. We won't send a truck to top of 24
+configuration is obeyed to +-10%. We won't send a truck to top up 24
 scruffin fruits every time the few inhabitants at a sanctuary eat. If
 the limit is 10000 we won't send a truck until they've eaten
 1000. Same goes for if a dock happens to produce something with a
@@ -126,13 +112,14 @@ reaches 150% of the limit we send a truck to sell it down to
 sanctuaries or factories. We will only buy things if the source of a
 ware on the logistics dock dockware manager sources is set to 'Buy'.
 
-Another feature: priorities. There are currently three priority levels
-for things that need to be done. High, normal and meh. Meh priority is
-only handled if a truck happens to go to that destination and has
-spare cargo space. Normal priority is "this needs to be done". This is
-stuff like topping up a factory with resources that aren't very low
-yet. High priority is "do this or else". High priority is only used
-for resources for factories.
+There are currently three priority levels for things that need to be
+done. High, normal and meh. Meh priority is only handled if a truck
+happens to go to that destination and has spare cargo space. Normal
+priority is "this needs to be done". This is stuff like topping up a
+factory with resources that aren't very low yet or wares that are
+getting low on docks. High priority is "do this or else". High
+priority is only used for resources for factories that are about to
+stall.
 
 Every available truck will be sent as soon as possible to fill the
 needs of a client. We keep track of exactly how many wares a client
@@ -163,15 +150,18 @@ Bugs:
    that factory we'll still incidentally empty things, but this is not
    reliable). This could be considered a feature since we won't waste
    time and resources on unnecessary production but we could at least
-   sell the overproduction. Which we won't. I guess the decision to
-   only have priorites for demand and not supply wasn't correct.
+   sell the overproduction. Which we won't.
+
+ - Not critical. Wares in the logistics docks show very large amounts
+   in the Needs menu. This is on purpose since we set those needs
+   internally so that other clients can always offload wares into the
+   logi dock. We won't actually run and buy those wares unless someone
+   actually needs them.
 
 TODO:
 
  - factory death (not yet implemented and will make the script on the
    logistics dock die).
- 
- - separate ships by size (have small ships sell small stuff?)
 
  - mining carrier clients (add mining carrier as client, the rest is
    automatic)
