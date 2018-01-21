@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>Unilog.Menu.SM</name>
-	<version>65</version>
+	<version>67</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments>
@@ -4290,7 +4290,7 @@
 			<sval type="string" val="Unilog.Menu.SM" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="65" />
+			<sval type="int" val="67" />
 			<sval type="int" val="0" />
 			<sval type="array" size="74">
 				<sval type="string" val="Menu" />
