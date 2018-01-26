@@ -1,4 +1,4 @@
-Unified logistics
+# Unified logistics #
 
 Unified logistics is a script to run the logistics in a Mayhem empire
 the way I want logistics to be run.
@@ -11,14 +11,16 @@ Unilog is intended to replace the functionality of dock agents,
 station agents, IDN and some couriers. Not because I want to compete
 with them but because I want things done my way.
 
-High level goals are:
+## High level goals ##
 
  - Reduce the number of clicks for setting things up
 
  - Reduce micromanagement, especially as the empire grows
 
  - Try to be efficient
- 
+
+## Usage example ##
+
 Let's start with a simple example. You have one sanctuary and 2
 factories and want the factories to never stop running. Press the
 hotkey for UL, click on "select logistics dock", pick your sanctuary
@@ -29,7 +31,7 @@ on the top of the menu to "Trucks", click on the ships you want to add
 as trucks. You're done. Your factories should now chug along as long
 as a few basic requirements are met.
 
-Let's explain a few things that just happened:
+### A few things that just happened ###
 
  - A logistics dock is the dock where the script runs, this is the
    central hub of your logistics. All wares produced by the factories
@@ -64,7 +66,11 @@ Let's explain a few things that just happened:
    was because in initial development it made the most sense in the
    save I was starting with and I haven't bothered changing that. If
    there's interest that can definitely be changed.
-    
+
+## Details ##
+
+### Trucks ###
+
 Our trucks are dumb as bricks. They have no logic at all. In fact, the
 only command they execute is: "go to X", nothing else. All the logic
 in UL is centralized in the logistics dock. The logistics dock decides
@@ -81,6 +87,8 @@ wares and the cahoona bakery is happy once again. The truck is then
 requested to go somewhere else for a job. Before going there we check
 if that station needs cahoonas and if it does, we load them and take
 them there.
+
+### What is managed ###
 
 We can add docks (other sanctuaries or MLCC) to be managed as well. In
 that case UL will look at the dockware configuration capacities to see
@@ -112,6 +120,8 @@ reaches 150% of the limit we send a truck to sell it down to
 sanctuaries or factories. We will only buy things if the source of a
 ware on the logistics dock dockware manager sources is set to 'Buy'.
 
+### Priorities ###
+
 There are currently three priority levels for things that need to be
 done. High, normal and meh. Meh priority is only handled if a truck
 happens to go to that destination and has spare cargo space. Normal
@@ -120,6 +130,8 @@ factory with resources that aren't very low yet or wares that are
 getting low on docks. High priority is "do this or else". High
 priority is only used for resources for factories that are about to
 stall.
+
+### More about trucks ###
 
 Every available truck will be sent as soon as possible to fill the
 needs of a client. We keep track of exactly how many wares a client
@@ -133,7 +145,7 @@ pirates at the jump in point for a high priority client we'll send all
 our trucks to die there are soon as they are available (yes, this is
 hilarious when it happens and will be fixed).
 
-Bugs:
+## Bugs ##
 
  - Not critical. If a truck gets destroyed en route to a station all
    statistics about incoming wares to that station get reset. For the
@@ -158,10 +170,18 @@ Bugs:
    logi dock. We won't actually run and buy those wares unless someone
    actually needs them.
 
-TODO:
+ - Critical. Sometimes things get confused and we keep sending a truck
+   from the logi dock to the logi dock. It picks up everything, then a
+   few seconds later it drops everything. This would be hilarious
+   except it spams the log and we often end up removing the wares the
+   logi dock needs at that time.
 
- - factory death (not yet implemented and will make the script on the
-   logistics dock die).
+## TODO ##
+
+This is a list of things that need to be fixed before this is
+releasable.
+
+ - factory death (not yet implemented and will make the script die).
 
  - mining carrier clients (add mining carrier as client, the rest is
    automatic)
@@ -183,9 +203,3 @@ TODO:
    screw that one up, there is no undo).
 
  - migrating logistics dock to a different sanctuary
-
- - wouldn't it be cool to require each sector to have enough trucks
-   for its own logistics and then use TLs to do inter-sanctuary
-   logistics? This would even almost make sense with the current
-   dock agents, except it would be too much pain in the ass without
-   some kind of automatic dockware capacities configuration.
